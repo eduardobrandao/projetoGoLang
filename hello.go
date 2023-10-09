@@ -14,15 +14,6 @@ func main(){
 	exibirIntroducao()
 for {
 	exibeMenu()
-
-	//formas de você printar na tela 
-	//Com o Scanf preciso passar as duas informações modificador(%d) e o local(&comando)
-	//var comando int
-	//fmt.Scanf("%d", &comando)
-
-	//Mais tem um meio mais simples usando uma outra função do Go o fmt.Scan()
-	//Para saber qual é o tipo da variável  precisa importar um packge "reflect" e daí usa-lo como mostra abiaxo
-
 	comando := leComando()
 	
 	switch comando {
@@ -49,16 +40,13 @@ func exibirIntroducao() {
 
 func leComando() int {
 	var comandoLido int
-	//reflect.TypeOf(comando)
 	fmt.Scan(&comandoLido)
 	fmt.Println("O camando escolhido foi", comandoLido)
-	//fmt.Println("O tipo da variável é", reflect.TypeOf(comando))
 
 	return comandoLido
 }
 
 func exibeMenu() {
-	//Menu de opçoes para sselecionar na aplicação
 	fmt.Println("1- Iniciar Monitoramento")
 	fmt.Println("2- Exibir Logs")
 	fmt.Println("0- Sair do Programa")
