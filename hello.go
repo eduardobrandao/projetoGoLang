@@ -4,7 +4,11 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-)  
+	"time"
+) 
+
+const monitoramentos = 5
+const delay = 2
 
 func main(){
 	exibirIntroducao()
@@ -62,12 +66,24 @@ func exibeMenu() {
 
 func inciarMonitoramento() {
 	fmt.Println("Monitorando...")
-	site := "https://www.alura.com.br"
-	//site := "https://ramdom-status-code.herokuapp.com" //site criado para simular erro de staatusCode
+	sites := []string{"https://www.alura.com.br", "https://ramdom-status-code.herokuapp.com/", "https://www.caelum.com.br"}
+
+	for i := 0; i < monitoramentos; i++ {
+
+		for i, site := range sites {
+			fmt.Println("Testando site", i, ":", site)
+			testaSite(site)
+		}
+		time.Sleep(delay * time.Minute)
+	}
+	fmt.Println("")
+}
+
+func testaSite(site string){
 	resp, _ := http.Get(site)
 	
 	if resp.StatusCode == 200 {
-		fmt.Println("Site:", site, "foi careagado com sucesso!")
+		fmt.Println("Site:", site, "foi careagado com sucesso !!!")
 	}else {
 		fmt.Println("Site:", site, "esta com problema. Status Code:", resp.StatusCode)
 	}
