@@ -1,0 +1,4 @@
+11/10/2023 22:55:09 - https://www.alura.com.br- online: true
+11/10/2023 22:55:10 - https://ramdom-status-code.herokuapp.com- online: false
+11/10/2023 22:55:11 - https://www.caelum.com.br- online: true
+11/10/2023 22:55:11 - https://www.casadocodigo.com.br- online: true
